@@ -49,4 +49,12 @@ CREATE TABLE testimonials(
 	id_utilisateur INT,
 	FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id_utilisateur)
 );
-SHOW TABLES;
+ALTER TABLE projets
+ADD date_creation DATE;
+SELECT * FROM projets;
+ALTER TABLE projets
+RENAME COLUMN date_creation TO created_in;
+SELECT * FROM projets;
+INSERT INTO offres (id_offre,montant,delai)
+VALUES (1078,78, '2024-12-29');
+SELECT * FROM offres;
