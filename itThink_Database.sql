@@ -27,6 +27,10 @@ CREATE TABLE sous_categorie(
 INSERT INTO sous_categorie (id_sous_categorie,nom_sous_categorie,id_categorie)
 VALUES (666,"landing pages",888);
 
+UPDATE sous_categorie
+SET id_categorie = 888
+WHERE id_sous_categorie = 666;
+
 CREATE TABLE projets(
 	id_projet INT PRIMARY KEY,
 	titre_projet VARCHAR(50),
@@ -83,6 +87,10 @@ VALUES (111,"you're the best")
 
 DELETE FROM testimonials WHERE id_temoignage = 111;
 
+SELECT sous_categorie.nom_sous_categorie, sous_categorie.id_sous_categorie, categorie.nom_categorie, categorie.id_categorie
+FROM sous_categorie
+INNER JOIN categorie
+ON sous_categorie.id_categorie = categorie.id_categorie;
 
 SELECT * FROM utilisateurs;
 SELECT * FROM categorie;
