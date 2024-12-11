@@ -51,10 +51,25 @@ CREATE TABLE testimonials(
 );
 ALTER TABLE projets
 ADD date_creation DATE;
+
 SELECT * FROM projets;
+
 ALTER TABLE projets
 RENAME COLUMN date_creation TO created_in;
-SELECT * FROM projets;
+
 INSERT INTO offres (id_offre,montant,delai)
 VALUES (1078,78, '2024-12-29');
-SELECT * FROM offres;
+
+
+INSERT INTO projets (id_projet,titre_projet,projet_description)
+VALUES (123,"landing page","the best lannding page that ever made, is made by codziac");
+SELECT * FROM projets;
+
+UPDATE projets SET titre_projet = "changed", projet_description = "desc changed" WHERE id_projet = 123;
+
+INSERT INTO testimonials (id_temoignage, commentaire)
+VALUES (111,"you're the best")
+SELECT * FROM testimonials;
+
+DELETE FROM testimonials WHERE id_temoignage = 111;
+SELECT * FROM testimonials;
