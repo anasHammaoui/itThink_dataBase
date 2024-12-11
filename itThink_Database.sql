@@ -6,16 +6,27 @@ CREATE TABLE Utilisateurs (
 	mot_de_passe VARCHAR(50),
 	email VARCHAR(50)
 );
+
+INSERT INTO utilisateurs
+VALUES (999,"Ahmed","Ahmed111@","ahmed@gmail.co");
+
 CREATE TABLE categorie(
 	id_categorie INT PRIMARY KEY,
 	nom_categorie VARCHAR(50)
 );
+INSERT INTO categorie
+VALUES (888,"coding");
+
 CREATE TABLE sous_categorie(
 	id_sous_categorie INT PRIMARY KEY,
 	nom_sous_categorie VARCHAR(50),
 	id_categorie INT,
 	FOREIGN KEY (id_categorie) REFERENCES categorie(id_categorie)
 );
+
+INSERT INTO sous_categorie (id_sous_categorie,nom_sous_categorie,id_categorie)
+VALUES (666,"landing pages",888);
+
 CREATE TABLE projets(
 	id_projet INT PRIMARY KEY,
 	titre_projet VARCHAR(50),
@@ -60,16 +71,22 @@ RENAME COLUMN date_creation TO created_in;
 INSERT INTO offres (id_offre,montant,delai)
 VALUES (1078,78, '2024-12-29');
 
+INSERT INTO projets (id_projet,titre_projet,projet_description,id_categorie,id_sous_categorie,id_utilisateur,created_in)
+VALUES (123,"landing page","the best lannding page that ever made, is made by codziac",888,666,999, "2024-12-07");
 
-INSERT INTO projets (id_projet,titre_projet,projet_description)
-VALUES (123,"landing page","the best lannding page that ever made, is made by codziac");
 SELECT * FROM projets;
 
 UPDATE projets SET titre_projet = "changed", projet_description = "desc changed" WHERE id_projet = 123;
 
 INSERT INTO testimonials (id_temoignage, commentaire)
 VALUES (111,"you're the best")
-SELECT * FROM testimonials;
 
 DELETE FROM testimonials WHERE id_temoignage = 111;
-SELECT * FROM testimonials;
+
+
+SELECT * FROM utilisateurs;
+SELECT * FROM categorie;
+SELECT * FROM sous_categorie;
+SELECT * FROM projets;
+SELECT * FROM freelances;
+SELECT * FROM offres;
