@@ -49,6 +49,8 @@ CREATE TABLE freelances(
 	id_utilisateur INT,
 	FOREIGN KEY (id_utilisateur) REFERENCES Utilisateurs(id_utilisateur)
 );
+INSERT INTO freelances
+VALUES (121,"anas","full stack developer",999);
 CREATE TABLE offres(
 	id_offre INT PRIMARY KEY,
 	montant INT,
@@ -74,6 +76,11 @@ RENAME COLUMN date_creation TO created_in;
 
 INSERT INTO offres (id_offre,montant,delai)
 VALUES (1078,78, '2024-12-29');
+
+UPDATE offres
+SET id_freelance = 121, id_projet = 123
+WHERE id_offre = 1078;
+
 
 INSERT INTO projets (id_projet,titre_projet,projet_description,id_categorie,id_sous_categorie,id_utilisateur,created_in)
 VALUES (123,"landing page","the best lannding page that ever made, is made by codziac",888,666,999, "2024-12-07");
